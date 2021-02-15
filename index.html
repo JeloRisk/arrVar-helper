@@ -1,1 +1,84 @@
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://phosphoricons.com">
+    <link rel="stylesheet" href="m.ac.css">
+    <title>arrHelper</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>arrComponent-Helper</h3>
+        <div class="cols-3"> <textarea name="" id="input" class="field"
+                placeholder="Easy array... put some text here"></textarea>
+        </div>
+        <div class="cols-2">
+            <textarea id="mirror" class="result">output...</textarea>
+        </div>
+        <div class="g2">
+            <div class="tooltip">
+                <img src="copy.png" class="cop" onclick="copy()">
+                <span class="tooltiptext">copy</span>
+            </div>
+            <div class="tooltip2">
+                <img src="emoWelcome1.png" alt="" class="s">
+                <span class="tooltiptext2">transform</span>
+            </div>
+            <!-- <img src="warning.png" class="w"> -->
+            <!-- next update -->
+        </div>
+        <div id="copa"></div>
+        <!-- <button class="alert" onclick="copy()">copy</button> -->
+    </div>
+    <script>
+        var input = document.getElementById('input');
+        var mirror = document.getElementById('mirror');
+        let textarea = document.querySelector('textarea');
+        let count = document.querySelector('.count');
+        input.addEventListener('input', function (e) {
+            mirror.innerText = "[" + "\"" + e.target.value.split(",").join("\", \"") + "\"" + "]";
+        });
+        // input.addEventListener('input', function (a) {
+        //     mirror.innerText = "let " + a.target.value.split("\n\n").join(" = ");
+        // });
+
+
+        // input.addEventListener('input', function (e) {
+        //     mirror.innerText = "[" + "\"" + e.target.value.split("\/").join("\", \"");
+        // });
+
+
+        // function countLetters() {
+        //     var string = textarea.value;
+        //     var length = string.split(/[^\s]+/).length - 1;
+        //     count.innerText = length;
+        // }
+        // /\b[a-z]|['_][a-z]|\B[A-Z]/g /[^\s]+/
+        // function countLetters() {
+        //     // const text = textarea.value;
+        //     const textLength = textarea.value.length;
+        //     // const removeWhitespace = textarea.value.replace(" ", "");
+        //     // const length = removeWhitespace.length;
+        //     count.innerText = `${textLength}`;
+        //     // count.innerText = length;
+
+        // }
+        function copy() {
+            let copyarr = document.getElementById('mirror');
+            copyarr.select();
+            copyarr.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Copied the text: " + copyarr.value);
+            console.log(copyarr);
+            // document.getElementById("copa").innerHTML = "Copied the text: " + copyarr.value;
+        };
+    </script>
+</body>
+
+</html>
